@@ -91,14 +91,65 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1){
-	  	HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , SET );
-	  	HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , RESET );
-	  	HAL_Delay (2000) ;
-	  	HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , RESET );
-	  	HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , SET );
-	  	HAL_Delay (2000) ;
-    }
+  int counter = 0;
+   while (1)
+   {
+   if (counter >=10) {
+   counter=0;
+   }
+   if (counter == 0){
+ 	  //Bên A chuyển đỏ
+ 	  HAL_GPIO_WritePin ( LED_1_GPIO_Port , LED_1_Pin,SET );
+ 	  HAL_GPIO_WritePin ( LED_2_GPIO_Port , LED_2_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_3_GPIO_Port , LED_3_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_7_GPIO_Port , LED_7_Pin,SET );
+ 	  HAL_GPIO_WritePin	 ( LED_8_GPIO_Port , LED_8_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_9_GPIO_Port , LED_9_Pin,RESET );
+ 	  //Bên B chuyển xanh
+ 	  HAL_GPIO_WritePin ( LED_4_GPIO_Port , LED_4_Pin,RESET );
+ 	  HAL_GPIO_WritePin ( LED_5_GPIO_Port , LED_5_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_6_GPIO_Port , LED_6_Pin,SET);
+ 	  HAL_GPIO_WritePin ( LED_10_GPIO_Port , LED_10_Pin,SET );
+ 	  HAL_GPIO_WritePin	 ( LED_11_GPIO_Port , LED_11_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_12_GPIO_Port , LED_12_Pin,RESET );
+   }
+   if (counter == 3){
+ 	  //Bên B chuyển vàng
+ 	  HAL_GPIO_WritePin ( LED_4_GPIO_Port , LED_4_Pin,RESET );
+ 	  HAL_GPIO_WritePin ( LED_5_GPIO_Port , LED_5_Pin,SET );
+ 	  HAL_GPIO_WritePin	 ( LED_6_GPIO_Port , LED_6_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_10_GPIO_Port , LED_10_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_11_GPIO_Port , LED_11_Pin,SET);
+ 	  HAL_GPIO_WritePin ( LED_12_GPIO_Port , LED_12_Pin,RESET );
+   }
+   if (counter == 5){
+ 	  //Bên A chuyển xanh
+ 	  HAL_GPIO_WritePin ( LED_1_GPIO_Port , LED_1_Pin,RESET );
+ 	  HAL_GPIO_WritePin ( LED_2_GPIO_Port , LED_2_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_3_GPIO_Port , LED_3_Pin,SET);
+ 	  HAL_GPIO_WritePin ( LED_7_GPIO_Port , LED_7_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_8_GPIO_Port , LED_8_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_9_GPIO_Port , LED_9_Pin,SET );
+ 	  //Bên B chuyển đỏ
+ 	  HAL_GPIO_WritePin ( LED_4_GPIO_Port , LED_4_Pin,SET );
+ 	  HAL_GPIO_WritePin ( LED_5_GPIO_Port , LED_5_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_6_GPIO_Port , LED_6_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_10_GPIO_Port , LED_10_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_11_GPIO_Port , LED_11_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_12_GPIO_Port , LED_12_Pin,SET );
+   }
+   if (counter == 8){
+ 		  //Bên A chuyển vàng
+ 	  HAL_GPIO_WritePin ( LED_1_GPIO_Port , LED_1_Pin,RESET );
+ 	  HAL_GPIO_WritePin ( LED_2_GPIO_Port , LED_2_Pin,SET );
+ 	  HAL_GPIO_WritePin	 ( LED_3_GPIO_Port , LED_3_Pin,RESET);
+ 	  HAL_GPIO_WritePin ( LED_7_GPIO_Port , LED_7_Pin,RESET );
+ 	  HAL_GPIO_WritePin	 ( LED_8_GPIO_Port , LED_8_Pin,SET);
+ 	  HAL_GPIO_WritePin ( LED_9_GPIO_Port , LED_9_Pin,RESET );
+   }
+ 	  counter++;
+ 	  HAL_Delay (1000) ;
+   }
 }
 /**
   * @brief System Clock Configuration
